@@ -55,7 +55,7 @@ def Execute():
     """
     while True:
         password_lenght_input = input(
-            "Insira o tamanho de caracteres desejado para a senha: ")
+            "Insira a quantidade de caracteres desejados para a senha: ")
 
         generated_password = PrettyPrint.boldGreenText(
             gen_password(int(password_lenght_input)))
