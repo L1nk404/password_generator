@@ -16,16 +16,12 @@ class Color:
     END = '\033[0m'
 
 
-class pretty_print:
-    def __init__(self, text):
+class PrettyPrint:
+    def __init__(self):
         pass
 
-    def error(text):
-        print(
-            Color.BOLD, Color.RED,
-            text,
-            Color.END, sep="", end=2*"\n"
-        )
+    def boldGreenText(text):
+        return f"{Color.BOLD}{Color.GREEN}{text}{Color.END}"
 
 
 def gen_password(password_lenght):
@@ -54,8 +50,25 @@ def gen_password(password_lenght):
     return generated_password
 
 
-def main_menu():
-    ...
+def Execute():
+    """Simply execute the program and return the generated password
+    """
+    while True:
+        password_lenght_input = input(
+            "Insira o tamanho de caracteres desejado para a senha: ")
+
+        generated_password = PrettyPrint.boldGreenText(
+            gen_password(int(password_lenght_input)))
+
+        print(
+            f"\nA senha gerada é {generated_password}.\n")
+
+        loop_control = input("Deseja gerar outra senha? [y/n].").lower()
+
+        if loop_control == "n":
+            exit()
+        else:
+            continue
 
 
-print(gen_password(16))
+Execute()
