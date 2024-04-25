@@ -1,5 +1,35 @@
 import random
 
+ASCII_ART = """\033[92m 
+                    ........                                              
+             .^7YPGBB######BBGPY7^.                                       
+           ^JGB####################BGJ^                                    
+        :YB############################BY:                                 
+       ^P##################################P^                               
+     .P######################################P.                             
+    !########BG5J???J5GB#######################!                            
+   ?######G?^.         .^?G#####################?                           
+  !#####G~                 ~G####################!                          
+ .B####J         ...         Y###################B.                         
+ ?####Y       !PB###BP!       JGGGGGGGGGGGGG######?                         
+ G###B.      5#########5                    .J####G                         
+ G###G      :#BBBBBB#BB#:                     B###G                         
+ G###B.      5BBBBBBBB#5                    .J####G                         
+ ?####Y       !5B##BBP!       JGGG!..     :BB#####?                         
+ .B####J         ...         Y#####B#5    !######B.                         
+  !#####G~                 ~G#########P??5B######!                          
+   ?######G?^.         .^?G#####################?                           
+    !########BG5J???Y5GB#######################!                            
+     .P######################################P.                             
+       ^P##################################P^                               
+         :YB############################BY:                                 
+            ^JGB####################BGJ^                                    
+              .^7YPGBB######BBGPY7^.                                       
+                     ........                                              
+                                                                                                     
+
+\033[0m"""
+
 
 class Color:
     """Just add colors for strings.
@@ -17,9 +47,6 @@ class Color:
 
 
 class PrettyPrint:
-    def __init__(self):
-        pass
-
     def boldGreenText(text):
         return f"{Color.BOLD}{Color.GREEN}{text}{Color.END}"
 
@@ -57,18 +84,24 @@ def Execute():
         password_lenght_input = input(
             "Insira o tamanho de caracteres desejado para a senha: ")
 
+        # Execute the gen_password function, and format it with PrettyPrint class
         generated_password = PrettyPrint.boldGreenText(
             gen_password(int(password_lenght_input)))
 
         print(
             f"\nA senha gerada é {generated_password}.\n")
 
-        loop_control = input("Deseja gerar outra senha? [y/n].").lower()
+        loop_control = input("Deseja gerar outra senha? [y/n]: ").lower()
 
+        # Allow the user exit de program based on loop_control input.
         if loop_control == "n":
             exit()
         else:
             continue
 
+
+""" ################################################################################# """
+
+print(ASCII_ART)
 
 Execute()
