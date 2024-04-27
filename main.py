@@ -21,7 +21,7 @@ ASCII_ART = """\033[92m
    ?######G?^.         .^?G#####################?                           
     !########BG5J???Y5GB#######################!                            
      .P######################################P.                             
-       ^P##################################P^                               
+       ^P##################################P^  
          :YB############################BY:                                 
             ^JGB####################BGJ^                                    
               .^7YPGBB######BBGPY7^.                                       
@@ -46,9 +46,8 @@ class Color:
     END = '\033[0m'
 
 
-class PrettyPrint:
-    def boldGreenText(text):
-        return f"{Color.BOLD}{Color.GREEN}{text}{Color.END}"
+def boldGreenText(text):
+    return f"{Color.BOLD}{Color.GREEN}{text}{Color.END}"
 
 
 def gen_password(password_lenght):
@@ -85,16 +84,17 @@ def Execute():
             "Insira a quantidade de caracteres desejados para a senha: ")
 
         # Execute the gen_password function, and format it with PrettyPrint class
-        generated_password = PrettyPrint.boldGreenText(
+        generated_password = boldGreenText(
             gen_password(int(password_lenght_input)))
 
         print(
-            f"\nA senha gerada é {generated_password}.\n")
+            f"\nA senha gerada é {generated_password}\n")
 
         loop_control = input("Deseja gerar outra senha? [y/n]: ").lower()
 
         # Allow the user exit de program based on loop_control input.
         if loop_control == "n":
+            print("\n Até mais !!")
             exit()
         else:
             continue
