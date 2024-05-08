@@ -88,10 +88,11 @@ def gen_password(password_lenght):
 
 
 def loop_handle():
-    loop_control = input("Deseja gerar outra senha? [y/n]: ")
+
+    loop_control = input("\n\nDeseja gerar outra senha? [y/n]: ")
 
     if loop_control == "n" or loop_control == "N":
-        print("\n Até mais !!")
+        os.system(f"cowsay -f default Tchauzinho !! ! | lolcat")
         exit()
     elif loop_control == "y" or loop_control == "Y":
         cls()
@@ -118,11 +119,12 @@ def Execute():
                 gen_password(int(password_lenght_input)))
 
             print(f"\nA senha gerada é {generated_password}\n")
+            os.system(f"cowsay -f dragon-and-cow Be safe ! | lolcat")
 
         else:
             print(
                 boldRedText(
-                    "Input inválido, por favor, insira apenas números inteiros positivos.\n")
+                    "\n\nInput inválido, por favor, insira apenas números inteiros positivos.\n")
             )
             continue
 
