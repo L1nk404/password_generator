@@ -1,5 +1,5 @@
-import random
-import os
+import random  # biblioteca para randomizar
+import os  # biblioteca para usar rescursos do Sistema Operacional
 
 ASCII_ART = """\033[92m
                     ........
@@ -99,7 +99,7 @@ def gen_password(password_lenght):
 def loop_handle():
     """Essa função simplesmente controla o loop do menu, perguntando ao usuário
        se quer continuar a usar o programa, dependendo da resposta ele reinicia o programa
-       ou fecha o mesmo
+       ou fecha o mesmo.
     """
 
     # Pergunta ao usuário se quer continuar a usar o programa
@@ -107,7 +107,7 @@ def loop_handle():
 
     if loop_control == "n" or loop_control == "N":
         # Mensagem de despedida
-        os.system(f"cowsay -f default Tchauzinho !!! | lolcat")
+        # os.system(f"cowsay -f default Tchauzinho !!! | lolcat")
         exit()  # Fecha o programa
     elif loop_control == "y" or loop_control == "Y":
         cls()  # Limpa o terminal
@@ -122,19 +122,19 @@ def loop_handle():
 def Execute():
     """ Função principal que executa o programa
     """
-    while True:
+    while True:  # Loop infinito
 
         password_lenght_input = input(
             "Insira a quantidade de caracteres desejados para a senha: ")
 
         if password_lenght_input.isdigit():  # Verificamos se o input é do tipo inteiro (int)
-            # Executa a fiunção gen_password e formata com a função boldGreenText
+            # Executa a função gen_password e formata com a função boldGreenText
             generated_password = boldGreenText(
                 gen_password(int(password_lenght_input)))
 
             print(f"\nA senha gerada é {generated_password}\n")
             # Mensagem com dragão fofo
-            os.system(f"cowsay -f dragon-and-cow Usar senhas fortes, com letras, números e símbolos, aumenta a segurança digital e protege seus dados pessoais contra ataques cibernéticos. Be safe !! | lolcat")
+            # os.system(f"cowsay -f dragon-and-cow Usar senhas fortes, com letras, números e símbolos, aumenta a segurança digital e protege seus dados pessoais contra ataques cibernéticos. Be safe !! | lolcat")
 
         else:  # Caso o input seja inválido, exibe mensagem de erro
             print(
@@ -149,5 +149,6 @@ def Execute():
 """ ################################################################################# """
 
 print(ASCII_ART)
+
 
 Execute()
